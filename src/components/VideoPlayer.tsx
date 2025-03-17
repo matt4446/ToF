@@ -114,12 +114,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
               </div>
               <div className="flex gap-2">
                 <button 
-                  onClick={() => seekBySeconds(-1)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded"
-                >
-                  Back 1s
-                </button>
-                <button 
                   onClick={() => seekBySeconds(-0.5)}
                   className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded"
                 >
@@ -130,12 +124,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
                   className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded"
                 >
                   Skip 0.5s
-                </button>
-                <button 
-                  onClick={() => seekBySeconds(1)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded"
-                >
-                  Skip 1s
                 </button>
               </div>
             </div>

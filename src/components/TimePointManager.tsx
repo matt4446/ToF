@@ -51,11 +51,18 @@ const TimePointManager: React.FC<TimePointManagerProps> = ({
     return durations;
   };
 
-  // Calculate total duration by summing all pair durations
+  // Calculate total duration by summing all pair durations or using first and last points
   const calculateTotalDuration = (): number => {
     if (timePoints.length < 2) return 0;
     
-    return calculateDurations().reduce((total, current) => total + current.duration, 0);
+    if (isAdvancedMode) {
+      // Advanced mode: sum all pair durations
+      return calculateDurations().reduce((total, current) => total + current.duration, 0);
+    } else {
+      // Simple mode: use first and last points
+      const sortedPoints = [...timePoints].sort((a, b) => a.time - b.time);
+      return sortedPoints[sortedPoints.length - 1].time - sortedPoints[0].time;
+    }
   };
 
   const durations = calculateDurations();
